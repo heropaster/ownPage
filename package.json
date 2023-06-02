@@ -1,0 +1,19 @@
+{
+  "name": "ownpage",
+  "version": "1.0.0",
+  "description": "my own resume page",
+  "main": "main.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/heropaster/ownPage.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/heropaster/ownPage/issues"
+  },
+  "homepage": "https://github.com/heropaster/ownPage#readme"
+}

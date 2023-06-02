@@ -1,0 +1,109 @@
+:root {
+    --hover: #00ffc3;
+    --size: 60px;
+    --distance: calc(var(--size)*-1.1);
+  }
+  
+  .goo,
+  .goo ul {
+    background: inherit;
+    filter: url("#schlurp"); // this is reference to svg filter in HTML.
+  }
+  
+  ul {
+    display: flex;
+    justify-content: center;
+    background: #E3F09B; //MAY CHANGE
+    padding: 0 calc(var(--size) / 2);
+    li {
+      width: var(--size);
+      height: var(--size);
+      background: #E3F09B; //MAY CHANGE
+      margin: 0 3px;
+      color: black;
+      position: relative;
+    }
+  }
+  
+  .goo ul li {
+    &:before {
+      content: "";
+      width: 100%;
+      height: 100%;
+      position: absolute;
+      left: 0;
+      top: 0;
+      border-radius: 100%;
+      background: #E3F09B; //MAY CHANGE
+      transition: all 0.85s ease;
+      transform: translate3d(0, 0, 0); // performance / stability
+      will-change: transform; // performance / stability
+      backface-visibility: hidden; // performance / stability
+    }
+    &.hover:before {
+      transition: all 0.5s cubic-bezier(0.09, 1.98, 0.41, 0.71);
+      transform: translate3d(0, var(--distance), 0);
+      background: var(--hover); //Important color
+    }
+  }
+  
+  .menu {
+    position: absolute;
+    z-index: 1;
+    background: transparent;
+    text-align: center;
+    // overflow: hidden;
+  }
+  
+  .menu li {
+    background: transparent;
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+    transition: all 0.85s ease;
+    height: calc(var(--size) * 2);
+  
+    &:hover {
+      transition: all 0.5s cubic-bezier(0.09, 1.98, 0.41, 0.71);
+      transform: translateY(-53%);
+      color: white;
+    }
+  
+    a {
+      display: grid;
+      grid-template-rows: 1fr 1fr;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      color: rgba(0, 0, 0, 0.6);
+      transition: color 0.5s ease;
+      width: 100%;
+      height: 100%;
+    }
+    &:hover a {
+      color: rgba(0, 0, 0, 0.9);
+    }
+  }
+  
+  nav {
+    display: flex;
+    width: 25%;
+    justify-content: center;
+    margin: 0 auto;
+    background: #E3F09B; //MAY CHANGE
+    border-radius: 120px;
+    position: fixed;
+    bottom: 20px;
+    left: 20px;
+    right: 20px;
+  }
+  svg {
+    width: calc(var(--size)/3);
+    height: calc(var(--size)/3);
+    fill: none;
+    stroke: #5F5566;
+    stroke-width: 2;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+  }
+  
