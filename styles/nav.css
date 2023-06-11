@@ -37,7 +37,8 @@ ul li {
   transition: all 0.85s ease;
   transform: translate3d(0, 0, 0);
   will-change: transform;
-  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+          backface-visibility: hidden;
 }
 .goo ul li.hover:before {
   transition: all 0.5s cubic-bezier(0.09, 1.98, 0.41, 0.71);
@@ -117,6 +118,4 @@ svg {
   border-radius: 50%;
   z-index: 999;
   cursor: pointer;
-}
-
-/*# sourceMappingURL=nav.css.map */
+}/*# sourceMappingURL=nav.css.map */

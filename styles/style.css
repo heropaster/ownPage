@@ -1,15 +1,43 @@
+@charset "UTF-8";
 * {
   margin: 0;
   padding: 0;
 }
+
 body {
   background-color: #121212;
-  font-family: 'Source Code Pro', sans-serif;
+  font-family: "Source Code Pro", sans-serif;
   color: #fff;
 }
+
 body::-webkit-scrollbar {
   display: none;
 }
+
 a {
   text-decoration: none;
 }
+
+[data-tooltip] {
+  position: relative;
+}
+[data-tooltip]::after {
+  content: attr(data-tooltip); /* Выводим текст */
+  opacity: 0;
+  display: block;
+  box-sizing: border-box;
+  padding: 5px;
+  position: absolute;
+  top: -25px;
+  left: -30px;
+  width: 120px;
+  height: 30px;
+  border-radius: 10px;
+  color: #fff;
+  background: #06382d;
+  transition: 0.5s ease-in;
+  pointer-events: none;
+}
+[data-tooltip]:hover::after {
+  opacity: 1;
+}/*# sourceMappingURL=style.css.map */

@@ -1,0 +1,40 @@
+@import 'vars';
+* {
+    margin: 0;
+    padding: 0;
+  }
+  body {
+    background-color: #121212;
+    font-family: 'Source Code Pro', sans-serif;
+    color: $text-color;
+  }
+  body::-webkit-scrollbar {
+    display: none;
+  }
+  a {
+    text-decoration: none;
+  }
+  [data-tooltip] {
+    position: relative;
+    &::after {
+        content: attr(data-tooltip); /* Выводим текст */
+        opacity: 0;
+        display: block;
+        
+        box-sizing: border-box;
+        padding: 5px;
+        position: absolute;
+        top: -25px;
+        left: -30px;
+        width: $size*2;
+        height: $size/2;
+        border-radius: 10px;
+        color: $text-color;
+        background: $background;
+        transition: 0.5s ease-in;
+        pointer-events: none;//Подсказка должна отображаться при наведении на элемент, а не на невидимый текст подсказки   
+    }
+    &:hover::after {
+        opacity: 1;
+    } 
+  }
