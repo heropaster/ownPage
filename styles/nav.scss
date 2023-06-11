@@ -105,5 +105,21 @@
     stroke-width: 2;
     stroke-linecap: round;
     stroke-linejoin: round;
+  };
+  // Появление меню при наведении на триггер
+  .menu__container {
+    display: none;
   }
+  .menu__trigger {
+    position: fixed;
+    bottom: 20px;
+    right: 50%;
+    width: 35px;
+    height: 35px;
+    background: #E3F09B;
+    border-radius: 50%;
+    z-index: 999;
+    cursor: pointer;
+  }
+  
   
