@@ -18,6 +18,61 @@ a {
   text-decoration: none;
 }
 
+.nickname {
+  display: flex;
+  justify-content: center;
+  height: 80vh;
+  align-items: center;
+}
+.nickname__content {
+  cursor: pointer;
+  padding: 5px 0 5px 10px;
+  text-align: center;
+  width: 440px;
+  height: 70px;
+  box-sizing: border-box;
+  position: relative;
+  font-size: 46px;
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+}
+.nickname__content a {
+  color: #fff;
+  text-decoration: none;
+  transition: 0.5s ease-in;
+}
+.nickname__content:hover a {
+  color: #4D6CFA;
+}
+.nickname__content:hover svg rect {
+  stroke-dasharray: 440px 0 70px 0 440px 0 70px;
+  stroke: #595457;
+}
+.nickname__content svg {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+.nickname__content svg rect {
+  width: 100%;
+  height: 100%;
+  stroke: #fff;
+  fill: transparent;
+  stroke-width: 5px;
+  transition: 0.3s ease-in;
+  stroke-dasharray: 40px 360px 60px 30px 60px 360px 60px 30px;
+}
+.nickname__content::-moz-selection {
+  background-color: #fff;
+  color: #121212;
+}
+.nickname__content::selection {
+  background-color: #fff;
+  color: #121212;
+}
+
 [data-tooltip] {
   position: relative;
 }
