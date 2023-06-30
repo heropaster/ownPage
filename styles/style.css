@@ -4,8 +4,17 @@
   padding: 0;
 }
 
+.important {
+  color: #4d6cfa;
+  font-weight: 500;
+}
+
+.orange {
+  color: #dd840e;
+}
+
 body {
-  background-color: #121212;
+  background-color: #121212 !important;
   font-family: "Source Code Pro", sans-serif;
   color: #fff;
 }
@@ -21,7 +30,7 @@ a {
 .nickname {
   display: flex;
   justify-content: center;
-  height: 80vh;
+  height: 100vh;
   align-items: center;
 }
 .nickname__content {
@@ -42,7 +51,7 @@ a {
   transition: 0.5s ease-in;
 }
 .nickname__content:hover a {
-  color: #4D6CFA;
+  color: #4d6cfa;
 }
 .nickname__content:hover svg rect {
   stroke-dasharray: 440px 0 70px 0 440px 0 70px;
@@ -95,4 +104,59 @@ a {
 }
 [data-tooltip]:hover::after {
   opacity: 1;
+}
+
+.about {
+  color: #fff;
+  font-size: 24px;
+}
+.about .timeline__container {
+  text-align: center;
+}
+.about .timeline__container .timeline {
+  counter-reset: year;
+  margin: 10px auto;
+  display: grid;
+  grid-template-columns: repeat(52, 1fr);
+  grid-gap: 2px;
+  max-width: 780px;
+  padding-right: 2em;
+}
+.about .timeline__container .timeline__week {
+  position: relative;
+  display: block;
+}
+.about .timeline__container .timeline__week::before {
+  content: "";
+  display: block;
+  width: 100%;
+  padding-bottom: 100%;
+  background: rgba(247, 238, 238, 0.397);
+}
+.about .timeline__container .timeline__week::after {
+  position: absolute;
+  left: calc(100% + 4px);
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 12px;
+  line-height: 1;
+}
+.about .timeline__container .timeline__week:nth-child(52)::after {
+  content: "Год";
+}
+.about .timeline__container .timeline__week:nth-child(52n) {
+  counter-increment: year;
+}
+.about .timeline__container .timeline__week:nth-child(260n)::after {
+  content: counter(year);
+}
+.about .timeline__container .timeline__week_passed::before {
+  background: #dd840e;
+}
+.about .timeline__container .timeline__week_worked::before {
+  background: #4d6cfa;
+}
+
+.info {
+  width: 70%;
 }/*# sourceMappingURL=style.css.map */

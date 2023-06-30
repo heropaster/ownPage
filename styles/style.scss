@@ -1,91 +1,152 @@
-@import 'vars';
+@import "vars";
 * {
-    margin: 0;
-    padding: 0;
-  }
-  body {
-    background-color: #121212;
-    font-family: 'Source Code Pro', sans-serif;
-    color: $text-color;
-  }
-  body::-webkit-scrollbar {
-    display: none;
-  }
-  
-  a {
-    text-decoration: none;
-  }
-  .nickname {
-    display: flex;
-    justify-content: center;
-    height: 80vh;
-    align-items: center;
-    &__content {
-      cursor: pointer;
-      padding: 5px 0 5px 10px;
-      text-align: center;
-      width: 440px;
-      height: 70px;
-      box-sizing: border-box;
-      position: relative;
-      font-size: 46px;
-      letter-spacing: 0.3em;
-      text-transform: uppercase;
-      a {
-        color: #fff;
-        text-decoration: none;
-        transition: 0.5s ease-in;
-      }
-      &:hover a {
-        color: $important-color;
-      }
-      &:hover svg rect{
-        stroke-dasharray: 440px 0 70px 0 440px 0 70px;
-        stroke: $stroke-color;
-      }
-      svg {
-        position: absolute;
-        top: 0;
-        left: 0;
+  margin: 0;
+  padding: 0;
+}
+.important {
+  color: $important-color;
+  font-weight: 500;
+}
+.orange {
+  color: $orange;
+}
+body {
+  background-color: #121212 !important;
+  font-family: "Source Code Pro", sans-serif;
+  color: $text-color;
+}
+body::-webkit-scrollbar {
+  display: none;
+}
+
+a {
+  text-decoration: none;
+}
+.nickname {
+  display: flex;
+  justify-content: center;
+  height: 100vh;
+  align-items: center;
+  &__content {
+    cursor: pointer;
+    padding: 5px 0 5px 10px;
+    text-align: center;
+    width: 440px;
+    height: 70px;
+    box-sizing: border-box;
+    position: relative;
+    font-size: 46px;
+    letter-spacing: 0.3em;
+    text-transform: uppercase;
+    a {
+      color: #fff;
+      text-decoration: none;
+      transition: 0.5s ease-in;
+    }
+    &:hover a {
+      color: $important-color;
+    }
+    &:hover svg rect {
+      stroke-dasharray: 440px 0 70px 0 440px 0 70px;
+      stroke: $stroke-color;
+    }
+    svg {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      rect {
         width: 100%;
         height: 100%;
-        rect {
-          width:100%;
-          height: 100%;
-          stroke: #fff;
-          fill: transparent;
-          stroke-width: 5px;
-          transition: 0.3s ease-in;
-          stroke-dasharray: 40px 360px 60px 30px 60px 360px 60px 30px;
-        }
+        stroke: #fff;
+        fill: transparent;
+        stroke-width: 5px;
+        transition: 0.3s ease-in;
+        stroke-dasharray: 40px 360px 60px 30px 60px 360px 60px 30px;
       }
-    };
-    &__content::selection {
-      background-color: #fff;
-      color: #121212
     }
   }
-  [data-tooltip] {
-    position: relative;
-    &::after {
-        content: attr(data-tooltip); /* Выводим текст */
-        opacity: 0;
-        display: block;
-        
-        box-sizing: border-box;
-        padding: 5px;
-        position: absolute;
-        top: -25px;
-        left: -30px;
-        width: $size*2;
-        height: $size/2;
-        border-radius: 10px;
-        color: $text-color;
-        background: $background;
-        transition: 0.5s ease-in;
-        pointer-events: none;//Подсказка должна отображаться при наведении на элемент, а не на невидимый текст подсказки   
-    }
-    &:hover::after {
-        opacity: 1;
-    } 
+  &__content::selection {
+    background-color: #fff;
+    color: #121212;
   }
+}
+[data-tooltip] {
+  position: relative;
+  &::after {
+    content: attr(data-tooltip); /* Выводим текст */
+    opacity: 0;
+    display: block;
+
+    box-sizing: border-box;
+    padding: 5px;
+    position: absolute;
+    top: -25px;
+    left: -30px;
+    width: $size * 2;
+    height: calc($size / 2);
+    border-radius: 10px;
+    color: $text-color;
+    background: $background;
+    transition: 0.5s ease-in;
+    pointer-events: none; //Подсказка должна отображаться при наведении на элемент, а не на невидимый текст подсказки
+  }
+  &:hover::after {
+    opacity: 1;
+  }
+}
+
+.about {
+  color: $text-color;
+  font-size: 24px;
+  .timeline__container {
+    text-align: center;
+    .timeline {
+      counter-reset: year;
+      margin: 10px auto;
+      display: grid;
+      grid-template-columns: repeat(52, 1fr);
+      grid-gap: 2px;
+      max-width: calc(15px * 52);
+      padding-right: 2em;
+    }
+    .timeline__week {
+      position: relative;
+      display: block;
+    }
+    .timeline__week::before {
+      content: "";
+      display: block;
+      width: 100%;
+      padding-bottom: 100%;
+      background: rgba(247, 238, 238, 0.397);
+    }
+    .timeline__week::after {
+      position: absolute;
+      left: calc(100% + 4px);
+      top: 50%;
+      transform: translateY(-50%);
+      font-size: 12px;
+      line-height: 1;
+    }
+    .timeline__week:nth-child(52)::after {
+      content: "Год";
+    }
+    .timeline__week:nth-child(52n) {
+      counter-increment: year;
+    }
+    .timeline__week:nth-child(260n)::after {
+      content: counter(year);
+    }
+    .timeline__week_passed::before {
+      background: $orange;
+    }
+    .timeline__week_worked::before {
+      background: $important-color;
+    }
+  }
+}
+.info {
+  width: 70%;
+}

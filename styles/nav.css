@@ -1,7 +1,7 @@
 :root {
   --hover: #00ffc3;
   --size: 60px;
-  --distance: calc(var(--size)*-1.1);
+  --distance: calc(var(--size) * -1.1);
 }
 
 .goo,
@@ -13,13 +13,13 @@
 ul {
   display: flex;
   justify-content: center;
-  background: #E3F09B;
+  background: #e3f09b;
   padding: 0 calc(var(--size) / 2);
 }
 ul li {
   width: var(--size);
   height: var(--size);
-  background: #E3F09B;
+  background: #e3f09b;
   margin: 0 3px;
   color: black;
   position: relative;
@@ -33,12 +33,11 @@ ul li {
   left: 0;
   top: 0;
   border-radius: 100%;
-  background: #E3F09B;
+  background: #e3f09b;
   transition: all 0.85s ease;
   transform: translate3d(0, 0, 0);
   will-change: transform;
-  -webkit-backface-visibility: hidden;
-          backface-visibility: hidden;
+  backface-visibility: hidden;
 }
 .goo ul li.hover:before {
   transition: all 0.5s cubic-bezier(0.09, 1.98, 0.41, 0.71);
@@ -82,23 +81,23 @@ ul li {
 }
 
 nav {
+  height: 70px;
   display: flex;
   width: 25%;
   justify-content: center;
   margin: 0 auto;
-  background: #E3F09B;
+  background: #e3f09b;
   border-radius: 120px;
   position: fixed;
   bottom: 20px;
-  left: 20px;
-  right: 20px;
+  right: 3%;
 }
 
 svg {
   width: calc(var(--size) / 3);
   height: calc(var(--size) / 3);
   fill: none;
-  stroke: #5F5566;
+  stroke: #5f5566;
   stroke-width: 2;
   stroke-linecap: round;
   stroke-linejoin: round;
@@ -110,11 +109,11 @@ svg {
 
 .menu__trigger {
   position: fixed;
-  bottom: 20px;
-  right: 50%;
+  bottom: 5px;
+  right: 15%;
   width: 35px;
   height: 35px;
-  background: #E3F09B;
+  background: #e3f09b;
   border-radius: 50%;
   z-index: 999;
   cursor: pointer;
